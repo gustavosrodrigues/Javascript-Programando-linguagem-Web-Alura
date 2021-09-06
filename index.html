@@ -5,10 +5,7 @@
 		<title>Aparecida Nutrição</title>
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<script>
-			alert("Olá Mundo");
-		</script>
+		<link rel="stylesheet" type="text/css" href="css/index.css">		
 	</head>
 	<body>		
 		<header>
@@ -74,6 +71,13 @@
 
 			</section>
 		</main>
-
+		<script>
+			// Usando o querySelector é possível retornar um elemento HTML
+			const titulo = document.querySelector("h1");			
+			// textContent retorna todo o conteúdo de texto do elemento
+			console.log(titulo.textContent);
+			// Assim é possível mudar o conteúdo textual de um elemtnto HTML
+			titulo.textContent = "Aparecida Nutricionista";			
+		</script>
 	</body>
 </html>
