@@ -2,7 +2,7 @@ function display(...conteudo) {
     console.log(conteudo);
 }
 
-display("Fui carregado de um arquivo externo.", "asdfaf");
+display("Fui carregado de um arquivo externo.");
 
 // querySelector aceita tags, classes e id, na maneira como é usado no CSS
 const titulo = document.querySelector(".titulo");			
