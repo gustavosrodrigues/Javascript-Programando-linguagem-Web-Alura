@@ -26,12 +26,14 @@ for (i = 0; i < pacientes.length; i++) {
         console.log("Peso inválido!");
         pesoValido = false;
         tdImc.textContent = "Peso inválido";
+        paciente.style.backgroundColor = "lightcoral";
     }
     
     if (altura <= 0 || altura >= 3) {
         console.log("Altura inválida!")
         alturaValida = false;
         tdImc.textContent = "Altura inválida";
+        paciente.style.backgroundColor = "lightcoral";
     }
     
     if (pesoValido && alturaValida) {
