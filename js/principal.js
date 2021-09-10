@@ -2,6 +2,13 @@ function display(...conteudo) {
     console.log(conteudo);
 }
 
+// querySelector aceita tags, classes e id, na maneira como é usado no CSS
+const titulo = document.querySelector(".titulo");			
+// textContent retorna todo o conteúdo de texto do elemento
+console.log(titulo.textContent);
+// Assim é possível mudar o conteúdo textual de um elemtnto HTML
+titulo.textContent = "Aparecida Nutricionista";
+
 var pacientes = document.querySelectorAll(".paciente");
 
 for (i = 0; i < pacientes.length; i++) {
@@ -42,13 +49,13 @@ for (i = 0; i < pacientes.length; i++) {
     }
 }
 
-console.log(imc);
+let botaoAdd = document.querySelector("#adicionar-paciente");
+botaoAdd.addEventListener("click", function () {
+    console.log("O botão.");
+})
+
+titulo.addEventListener("click", function() {
+    console.log("Fui clicado!");
+})
 
 display("Fui carregado de um arquivo externo.");
-
-// querySelector aceita tags, classes e id, na maneira como é usado no CSS
-const titulo = document.querySelector(".titulo");			
-// textContent retorna todo o conteúdo de texto do elemento
-console.log(titulo.textContent);
-// Assim é possível mudar o conteúdo textual de um elemtnto HTML
-titulo.textContent = "Aparecida Nutricionista";
