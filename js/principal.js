@@ -52,11 +52,36 @@ for (i = 0; i < pacientes.length; i++) {
 let botaoAdd = document.querySelector("#adicionar-paciente");
 botaoAdd.addEventListener("click", function(event) {
     event.preventDefault();
-    console.log("O botão.");    
-})
 
-titulo.addEventListener("click", function() {
-    console.log("Fui clicado!");
-})
+    let form = document.querySelector("#form-adiciona");
 
-display("Fui carregado de um arquivo externo.");
+    let nome = form.nome.value;
+    let peso = form.peso.value;
+    let altura = form.altura.value;
+    let gordura = form.altura.value;
+
+    display(nome, peso, altura, gordura);
+    
+    let pacienteTr = document.createElement("tr");
+
+    display(pacienteTr);
+
+    let nomeTd = document.createElement("td");
+    let pesoTd = document.createElement("td");
+    let alturaTd = document.createElement("td");
+    let gorduraTd = document.createElement("td");
+    let imcTd = document.createElement("td");
+
+    nomeTd.textContent = nome;
+    pesoTd.textContent = peso;
+    alturaTd.textContent = altura;
+    gorduraTd.textContent = gordura;
+
+    pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+
+    let body = document.querySelector("#tabela-pacientes");
+    body.appendChild(pacienteTr);
+})
