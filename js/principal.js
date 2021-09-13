@@ -50,8 +50,9 @@ for (i = 0; i < pacientes.length; i++) {
 }
 
 let botaoAdd = document.querySelector("#adicionar-paciente");
-botaoAdd.addEventListener("click", function () {
-    console.log("O botão.");
+botaoAdd.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log("O botão.");    
 })
 
 titulo.addEventListener("click", function() {
