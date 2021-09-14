@@ -3,29 +3,35 @@ botaoAdd.addEventListener("click", function(event) {
     event.preventDefault();
 
     let form = document.querySelector("#form-adiciona");
-
-    let nome = form.nome.value;
-    let peso = form.peso.value;
-    let altura = form.altura.value;
-    let gordura = form.altura.value;
-
-    display(nome, peso, altura, gordura);
+    let paciente = obtemPacienteDoFormulario(form);
     
-    let pacienteTr = document.createElement("tr");
+    let pacienteTr = montaTr(paciente);
+    
+    let tabela = document.querySelector("#tabela-pacientes");        
+    tabela.appendChild(pacienteTr);
+    form.reset();    
+})
 
-    display(pacienteTr);
+function obtemPacienteDoFormulario(form) {
+    let paciente = {
+        nome: form.nome.value,
+        peso: form.peso.value,
+        altura: form.altura.value,
+        gordura: form.gordura.value,
+        imc: calculaIMC(form.peso.value, form.altura.value)
+    }    
+    return paciente;
+}
 
-    let nomeTd = document.createElement("td");
-    let pesoTd = document.createElement("td");
-    let alturaTd = document.createElement("td");
-    let gorduraTd = document.createElement("td");
-    let imcTd = document.createElement("td");
+function montaTr(paciente) {
+    var pacienteTr = document.createElement("tr");
+    pacienteTr.classList.add("paciente");
 
-    nomeTd.textContent = nome;
-    pesoTd.textContent = peso;
-    alturaTd.textContent = altura;
-    gorduraTd.textContent = gordura;
-    imcTd.textContent = calculaIMC(peso, altura);
+    var nomeTd = montaTd(paciente.nome, "info-nome")
+    var pesoTd = montaTd(paciente.peso, "info-peso");
+    var alturaTd = montaTd(paciente.altura, "info-altura");
+    var gorduraTd = montaTd(paciente.gordura, "info-gordura");
+    var imcTd = montaTd(paciente.imc, "info-imc");
 
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);
@@ -33,6 +39,13 @@ botaoAdd.addEventListener("click", function(event) {
     pacienteTr.appendChild(gorduraTd);
     pacienteTr.appendChild(imcTd);
 
-    let body = document.querySelector("#tabela-pacientes");
-    body.appendChild(pacienteTr);
-})
+    return pacienteTr;
+}
+
+function montaTd(dado, classe) {
+    let td = document.createElement("td");
+    td.textContent = dado;
+    td.classList.add(classe);   
+
+    return td;
+}
