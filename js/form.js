@@ -9,14 +9,15 @@ botaoAdd.addEventListener("click", function(event) {
 
     let erros = validaPaciente(paciente);
     if (erros.length > 0) {
-        let mensagem = document.querySelector("#mensagem-erro");
-        mensagem.textContent = erros;        
+        apagaMensagensErro();
+        exibeMensgensDeErro(erros);        
         return;
     }
     
     let tabela = document.querySelector("#tabela-pacientes");        
     tabela.appendChild(pacienteTr);
-    form.reset();    
+    form.reset();
+    apagaMensagensErro();
 })
 
 function obtemPacienteDoFormulario(form) {
@@ -63,11 +64,29 @@ function validaPaciente(paciente) {
     if (!validaPeso(paciente.peso)) {
         erro.push("Peso é inválido");
     }
-
     if (!validaAltura(paciente.altura)) {
         erro.push("Altura é inválida");
     }
+    if (!validaNome(paciente.nome)) {
+        erro.push("O campo 'Nome' está vazio.")
+    }
+    if (!validaGordura(paciente.gordura)) {
+        erro.push("O campo 'Gordura' está vazio.")
+    }
 
-    return erro;
-    
+    return erro;    
+}
+
+function exibeMensgensDeErro(erros) {
+    let ul = document.querySelector("#mostra-mensagens");
+    erros.forEach(function(erro) {
+        let li = document.createElement("li");    
+        li.textContent = erro;
+        ul.appendChild(li);
+    })    
+}
+
+function apagaMensagensErro() {
+    let ul = document.querySelector("#mostra-mensagens");
+    ul.innerHTML = "";    
 }

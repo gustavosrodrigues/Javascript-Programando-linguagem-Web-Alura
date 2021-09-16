@@ -61,6 +61,22 @@ function validaAltura(altura) {
     return false;
 }
 
+function validaNome(nome) {
+    if (nome.length > 0) {
+        return true;
+    }
+
+    return false;
+}
+
+function validaGordura(gordura) {
+    if (gordura > 0) {
+        return true;
+    }
+
+    return false;
+}
+
 function calculaIMC(peso, altura) {
     imc = 0;
     imc = peso / (altura * altura);
