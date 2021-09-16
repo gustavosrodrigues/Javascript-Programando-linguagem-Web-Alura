@@ -26,17 +26,15 @@ for (i = 0; i < pacientes.length; i++) {
     //peso = 800;
     //altura = 4;
     
-    pesoValido = validaPeso(peso);
-    alturaValida = validaAltura(altura);
+    let pesoValido = validaPeso(peso);
+    let alturaValida = validaAltura(altura);
     
-    if (!pesoValido) {        
-        pesoValido = false;
+    if (!pesoValido) {
         tdImc.textContent = "Peso inválido";
         paciente.classList.add("paciente-invalido");
     }
     
-    if (!alturaValida) {        
-        alturaValida = false;
+    if (!alturaValida) {
         tdImc.textContent = "Altura inválida";
         paciente.classList.add("paciente-invalido");
     }
