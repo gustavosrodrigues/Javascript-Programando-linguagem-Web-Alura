@@ -140,3 +140,8 @@ button[disabled=disabled], button:disabled {
 #mostra-mensagens {
 	color: darkred;
 }
+
+.fade-out {
+	opacity: 0;
+	transition: 0.5s;	
+}
