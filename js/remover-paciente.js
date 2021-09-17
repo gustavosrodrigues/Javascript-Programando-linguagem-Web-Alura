@@ -1,9 +1,11 @@
 function removePaciente(pacientes) {
-    pacientes.forEach(function(paciente) {
-        paciente.addEventListener("dblclick", function() {
-            this.remove();
-        })
-    }) 
+    let tabela = document.querySelector("#tabela-pacientes");
+
+    tabela.addEventListener("dblclick", function(event) {
+        let alvoAtual = event.target;
+        let alvoPai = alvoAtual.parentNode;
+        alvoPai.remove();
+    })
 }
 
 removePaciente(pacientes);
