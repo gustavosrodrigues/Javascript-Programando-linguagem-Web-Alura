@@ -9,7 +9,8 @@ campoFiltro.addEventListener("input", function(){
         pacientes.forEach(function(paciente){
             let tdNome = paciente.querySelector(".info-nome");
             let nome = tdNome.textContent;
-            if (nome.toLowerCase() != textoDigitado.toLowerCase()) {
+            let expressao = new RegExp(textoDigitado, "i");
+            if (!expressao.test(nome)) {
                 paciente.classList.add("invisivel");
             } else {
                 paciente.classList.remove("invisivel");
