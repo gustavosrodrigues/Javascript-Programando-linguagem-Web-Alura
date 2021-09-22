@@ -14,8 +14,7 @@ botaoAdd.addEventListener("click", function(event) {
         return;
     }
     
-    let tabela = document.querySelector("#tabela-pacientes");        
-    tabela.appendChild(pacienteTr);
+    addPacienteTabela(pacienteTr);
    // form.reset();
     apagaMensagensErro();
 })
@@ -56,6 +55,11 @@ function montaTd(dado, classe) {
     td.classList.add(classe);   
 
     return td;
+}
+
+function addPacienteTabela(pacienteTr) {
+    let tabela = document.querySelector("#tabela-pacientes");        
+    tabela.appendChild(pacienteTr);
 }
 
 function validaPaciente(paciente) {
