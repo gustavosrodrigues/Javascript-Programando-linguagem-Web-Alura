@@ -11,7 +11,8 @@ botaoBuscar.addEventListener("click", function(){
             erro.classList.add("invisivel");
             let resposta = xhr.responseText;
             let pacientes = JSON.parse(resposta);
-    
+            
+            removePaciente(pacientes);
             pacientes.forEach(function(paciente) {
                 addPacienteTabela(paciente);
             });

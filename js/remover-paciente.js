@@ -1,4 +1,4 @@
-function removePaciente(pacientes) {
+function removePacienteDblClick(pacientes) {
     let tabela = document.querySelector("#tabela-pacientes");
 
     tabela.addEventListener("dblclick", function(event) {
@@ -11,4 +11,18 @@ function removePaciente(pacientes) {
     })
 }
 
-removePaciente(pacientes);
+function removePaciente(pacienteJson) {
+    let tabela = document.querySelector("#tabela-pacientes");
+    let pacientesNaTabela = tabela.querySelectorAll(".paciente");
+    
+    pacienteJson.forEach(function(pJson){
+        pacientesNaTabela.forEach(function(pTabela){
+            let imc = pTabela.querySelector(".info-imc");
+            if(imc.textContent == pJson.imc) {            
+                pTabela.remove();
+            }
+        })     
+    })
+}
+
+removePacienteDblClick(pacientes);
