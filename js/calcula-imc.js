@@ -21,10 +21,7 @@ for (i = 0; i < pacientes.length; i++) {
     var tdAltura = paciente.querySelector(".info-altura");
     var altura = tdAltura.textContent;
     
-    var tdImc = paciente.querySelector(".info-imc");
-    
-    //peso = 800;
-    //altura = 4;
+    var tdImc = paciente.querySelector(".info-imc");  
     
     let pesoValido = validaPeso(peso);
     let alturaValida = validaAltura(altura);
